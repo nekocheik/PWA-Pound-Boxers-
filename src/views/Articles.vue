@@ -10,25 +10,6 @@
       <input class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
-    <div class="card">
-      <div class="title_rank">
-        <p class="card_title">Salvador Sanchez</p>
-        <div class="rank">
-          <p>10</p>
-        </div>
-      </div>
-      <div class="container_text">
-        <p class="card_text">Record: 44-1-1, 32 KO</p>
-        <p class="card_text">Years Active: 1975-1982</p>
-      </div>
-      <div class="container_text">
-        <p class="card_text">Championships:</p>
-        <p class="card_text">WBC Featherweight</p>
-      </div>
-      <div class="container_button">
-        <button class="card_button">Lire la fiche</button>
-      </div>
-    </div>
   </div>
 </template>
 
