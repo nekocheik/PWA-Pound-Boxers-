@@ -40,6 +40,9 @@
     color: white;
   }
   background-color: $secondary-color;
+  @media screen and (min-width: 900px) {
+    display: none;
+  }
 }
 
 .back {
