@@ -17,7 +17,6 @@
           <p>10</p>
         </div>
       </div>
-
       <div class="container_text">
         <p class="card_text">Record: 44-1-1, 32 KO</p>
         <p class="card_text">Years Active: 1975-1982</p>
@@ -39,12 +38,20 @@
   margin-bottom: 2rem;
 }
 .article_input {
-  border: 2px solid #c1292e;
+  border: 3px solid #c1292e;
   padding: 10px 40px;
   border-radius: 29px;
+  @media screen and (min-width: 900px) {
+    width: 30vh;
+  }
 }
 .article_input::placeholder {
   color: #c1292e;
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
 }
 .container_input {
   display: flex;
@@ -58,12 +65,20 @@
   line-height: 30px;
   margin-left: 1rem;
   margin-bottom: 1rem;
+  @media screen and (min-width: 900px) {
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+  }
 }
 .card {
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
   padding: 1rem 1.5rem;
+  @media screen and (min-width: 900px) {
+    max-width: 300px;
+    margin-left: 3rem;
+  }
 }
 .title_rank {
   display: flex;
