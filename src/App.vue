@@ -8,10 +8,11 @@
       <router-view />
     </div>
     <div class="nav__bottom">
-      <router-link to="/"><img src="@/assets/pictos/home.svg"></router-link>
-        <span class="back"> <router-link to="/articles">NEWS</router-link>
-          <router-link to="/article/1">article</router-link>
-        </span>
+      <router-link to="/"><img src="@/assets/pictos/home.svg"/></router-link>
+      <span class="back">
+        <router-link to="/articles">NEWS</router-link>
+        <router-link to="/article/1">article</router-link>
+      </span>
     </div>
   </div>
 </template>
