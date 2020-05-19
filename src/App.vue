@@ -65,9 +65,4 @@
   padding: 100px 10px;
 }
 
-h2 {
-  font-size: 18px;
-  font-weight: 700;
-}
-
 </style>
