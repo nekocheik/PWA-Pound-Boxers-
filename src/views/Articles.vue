@@ -10,7 +10,9 @@
       <input class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
-    <Card :cardTitle="'Salvador Sanchez'" :record="'Record: 44-1-1, 32 KO'" :years="'Years Active: 1975-1982'"  :tournament="'tournament'"/>
+    <div class="cards">
+      <Card v-for="(item, index) in array" :key="index" :cardTitle="'Salvador Sanchez'" :record="'Record: 44-1-1, 32 KO'" :years="'Years Active: 1975-1982'"  :tournament="'tournament'"/>
+    </div>
   </div>
 </template>
 
@@ -22,12 +24,43 @@ export default {
   name: 'articles',
   components: {
     Card
+  },
+  computed: {
+    array: function () {
+      const l = []
+      for (let i = 0; i < 100; i++) {
+        l.push(9)
+      }
+      return l
+    }
   }
 }
+
+const boxers = [
+
+]
+document.querySelectorAll('.organism.contentStream.slide').forEach((e, i) => {
+  if (i === 0) {
+    return
+  }
+  const boxer = {
+    title: e.querySelector('h1').innerHTML || '',
+    text: e.querySelector('ol').innerHTML
+  }
+
+  boxers.push(boxer)
+})
 
 </script>
 
 <style lang="scss" scoped>
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .article_subtitle {
   text-align: center;
   margin-bottom: 2rem;
@@ -36,10 +69,12 @@ export default {
   border: 3px solid #c1292e;
   padding: 10px 40px;
   border-radius: 29px;
-  @media screen and (min-width: 900px) {
-    width: 30vh;
-  }
+  width: 70%;
+  max-width: 300px;
+  color: #c1292e;
+  font-size: 16px;
 }
+
 .article_input::placeholder {
   color: #c1292e;
   font-family: Avenir;
@@ -48,11 +83,13 @@ export default {
   font-size: 16px;
   line-height: 22px;
 }
+
 .container_input {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
+
 .list_title {
   color: #c1292e;
   font-weight: 900;
@@ -64,44 +101,5 @@ export default {
     margin-left: 3rem;
     margin-bottom: 3rem;
   }
-}
-.title_rank {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.8rem;
-}
-.rank {
-  background: #235789;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-}
-.card_title {
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 30px;
-  color: #000000;
-}
-.card_text {
-  font-family: Avenir;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 25px;
-  color: #000000;
-}
-.container_text {
-  margin-bottom: 0.8rem;
-}
-.card_button {
-  background: #235789;
-  border-radius: 10px;
-  color: white;
-  padding: 10px 20px;
-}
-.container_button {
-  display: flex;
-  justify-content: center;
 }
 </style>

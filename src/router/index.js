@@ -14,12 +14,12 @@ const routes = [
   },
   {
     path: '/articles',
-    name: 'Articles',
+    name: 'articles',
     component: Articles
   },
   {
     path: '/article/:id',
-    name: 'Article',
+    name: 'article',
     component: Article
   }
 ]

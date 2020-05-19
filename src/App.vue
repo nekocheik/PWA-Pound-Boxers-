@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="nav__top">
-      <p>home</p>
+      <p>{{currentUrlName}}</p>
       <span class="back"> <router-link to="/">back</router-link></span>
     </div>
     <div class="container">
@@ -17,7 +17,36 @@
   </div>
 </template>
 
-<script></script>
+<script>
+
+export default {
+  name: 'Main',
+  data () {
+    return {
+      lastPage: 'home'
+    }
+  },
+  computed: {
+    currentUrlPath () {
+      return this.$router.path
+    },
+    currentUrlName () {
+      return this.$router.currentRoute.name
+    }
+  },
+  watch: {
+    currentUrlPath (newPage, oldPage) {
+      console.log('The list of colours has changed!')
+      console.log(newPage, oldPage)
+      this.lastPage = oldPage
+    }
+  },
+  mounted () {
+    console.log(this.$router)
+  }
+}
+
+</script>
 
 <style lang="scss">
 @import "./main.scss";
