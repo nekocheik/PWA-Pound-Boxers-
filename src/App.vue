@@ -59,9 +59,8 @@
 }
 
 .container {
-  padding-top: 100px;
   text-align: left;
-  padding: 100px 10px;
+  padding-top: 100px;
 }
 
 h2 {
