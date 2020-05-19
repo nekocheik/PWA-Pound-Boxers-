@@ -1,24 +1,23 @@
 <template>
   <div id="app">
-   <div class="nav__top">
-        <p>home</p>
-       <span class="back"> <router-link to="/">back</router-link></span>
+    <div class="nav__top">
+      <p>home</p>
+      <span class="back"> <router-link to="/">back</router-link></span>
     </div>
     <div class="container">
-      <router-view/>
+      <router-view />
     </div>
     <div class="nav__bottom">
-      <router-link to="/"><img src="@/assets/pictos/home.svg" alt=""></router-link>
+      <router-link to="/"
+        ><img src="@/assets/pictos/home.svg" alt=""
+      /></router-link>
     </div>
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style lang="scss">
-
 @import "./main.scss";
 .nav__top {
   position: fixed;
@@ -27,7 +26,7 @@
   padding: 20px 0px;
   color: white;
   a {
-    color: white
+    color: white;
   }
   background-color: $primary-color;
 }
@@ -38,7 +37,7 @@
   padding: 20px 0px;
   color: white;
   a {
-    color: white
+    color: white;
   }
   background-color: $secondary-color;
   @media screen and (min-width: 900px) {
@@ -65,4 +64,8 @@
   padding: 100px 10px;
 }
 
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
 </style>
