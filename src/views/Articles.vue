@@ -10,8 +10,22 @@
       <input class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
+    <Card :cardTitle="'Salvador Sanchez'" :record="'Record: 44-1-1, 32 KO'" :years="'Years Active: 1975-1982'"  :tournament="'tournament'"/>
   </div>
 </template>
+
+<script>
+
+import Card from '@/components/card'
+
+export default {
+  name: 'articles',
+  components: {
+    Card
+  }
+}
+
+</script>
 
 <style lang="scss" scoped>
 .article_subtitle {
@@ -49,16 +63,6 @@
   @media screen and (min-width: 900px) {
     margin-left: 3rem;
     margin-bottom: 3rem;
-  }
-}
-.card {
-  background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 18px;
-  padding: 1rem 1.5rem;
-  @media screen and (min-width: 900px) {
-    max-width: 300px;
-    margin-left: 3rem;
   }
 }
 .title_rank {
