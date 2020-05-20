@@ -1,18 +1,33 @@
 <template>
-  <div class="card" :class="{night : night}">
+  <div
+    data-aos="fade-left"
+    data-aos-easing="ease-in-back"
+    data-aos-offset="0"
+    class="card"
+    :class="{ night: night }"
+  >
     <div class="container_one">
       <div class="title_rank">
-        <p class="card_title">{{cardTitle}}</p>
+        <p class="card_title">{{ cardTitle }}</p>
         <div class="rank">
-          <p>{{number}}</p>
+          <p>{{ number }}</p>
         </div>
       </div>
       <div class="container_text">
-        <p class="card_text"><strong>Record :</strong> {{record}}</p>
-        <p class="card_text"><strong>Years Active </strong>: {{years}}</p>
+        <p class="card_text">
+          <strong>Record :</strong>
+          {{ record }}
+        </p>
+        <p class="card_text">
+          <strong>Years Active</strong>
+          : {{ years }}
+        </p>
       </div>
       <div class="container_text">
-        <p class="card_text"> <strong>Championships :</strong> {{championships}}</p>
+        <p class="card_text">
+          <strong>Championships :</strong>
+          {{ championships }}
+        </p>
       </div>
     </div>
     <div class="container_button">

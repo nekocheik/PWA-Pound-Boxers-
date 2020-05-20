@@ -11,7 +11,7 @@
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
     <div class="cards">
-      <Card v-for="(boxer, index) in boxerList" :key="index" :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
+      <Card v-for="(boxer, index) in boxerList" :key="index" :data-aos-delay="(index +1) * 300"  :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
     </div>
   </div>
 </template>
