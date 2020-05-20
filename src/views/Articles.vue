@@ -19,13 +19,12 @@
 <script>
 
 import Card from '@/components/card'
-import dataJson from '@/assets/dataBoxer.json'
 
 export default {
   name: 'articles',
   data () {
     return {
-      staticData: dataJson,
+      article: [],
       autocompletion: ''
     }
   },
@@ -36,10 +35,15 @@ export default {
     night: Boolean
   },
   mounted () {
+    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/1')
+      .then(response => response.json())
+      .then((c) => {
+        console.log(c)
+      })
   },
   computed: {
     boxerList () {
-      return this.staticData.filter((e) => e.name.toLowerCase().includes(this.autocompletion.toLowerCase()))
+      return this.article.filter((e) => e.name.toLowerCase().includes(this.autocompletion.toLowerCase()))
     }
   }
 }
