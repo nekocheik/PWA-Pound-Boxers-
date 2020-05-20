@@ -1,8 +1,5 @@
 <template>
   <div
-    data-aos="fade-left"
-    data-aos-easing="ease-in-back"
-    data-aos-offset="0"
     class="card"
     :class="{ night: night }"
   >
