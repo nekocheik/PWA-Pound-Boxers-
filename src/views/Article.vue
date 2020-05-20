@@ -31,36 +31,36 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
       article: {}
-    };
+    }
   },
-  mounted() {
+  mounted () {
     fetch(
-      "https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles"
+      'https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles'
     )
       .then(response => response.json())
       .then(articles => {
-        console.log(articles);
+        console.log(articles)
         this.article = articles.find(
           article => article.number === this.$route.params.id
-        );
-      });
+        )
+      })
   },
   computed: {
-    imageBoxer() {
+    imageBoxer () {
       if (this.article.name) {
         return require(`../assets/${this.article.name
-          .split(" ")
-          .join("-")
-          .replace(".", "")}.png`);
+          .split(' ')
+          .join('-')
+          .replace('.', '')}.png`)
       } else {
-        return "";
+        return ''
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

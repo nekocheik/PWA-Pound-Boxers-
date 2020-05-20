@@ -103,8 +103,9 @@ export default {
   margin-left: 1rem;
   margin-bottom: 1rem;
   @media screen and (min-width: 900px) {
-    margin-left: 3rem;
-    margin-bottom: 3rem;
+    margin: 20px 10%;
+    text-transform: uppercase;
+    font-size: 32px;
   }
 }
 </style>
