@@ -1,19 +1,31 @@
 <template>
   <div class="article">
+    <h1 class="title_boxeur">{{article.name}}</h1>
+    <h2 class="subtitle_carrer">HIS CARRER</h2>
     <div class="article_background">
-      <img class="boxeur" src="../assets/mike_tyson.png" alt="boxeur"/>
+      <img class="boxeur" :src="imageBoxer" />
+
     </div>
     <div class="container__article-text">
-      <h1 class="title_boxeur">{{article.name}}</h1>
-      <h2 class="subtitle_carrer">HIS CARRER</h2>
       <div class="margin_bottom">
-        <p class="margin_bottomtwo"><strong>Record :</strong> {{article.records}}</p>
-        <p><strong>Years Active:</strong>{{article.YearsActive}}</p>
+        <p class="margin_bottomtwo">
+          <strong>Record :</strong>
+          {{article.records}}
+        </p>
+        <p>
+          <strong>Years Active:</strong>
+          {{article.YearsActive}}
+        </p>
       </div>
-      <p><strong>Championships : </strong>{{article.championships}}</p>
-      <p class="margin_bottom">
-        {{article.description[0]}}
+      <p>
+        <strong>Championships :</strong>
+        {{article.championships}}
       </p>
+      <p
+        class="text__desrciption"
+        v-for="(description, index) in article.description"
+        :key="index"
+      >{{description}}</p>
     </div>
   </div>
 </template>
@@ -26,17 +38,36 @@ export default {
     }
   },
   mounted () {
-    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles')
+    fetch(
+      'https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles'
+    )
       .then(response => response.json())
-      .then((articles) => {
+      .then(articles => {
         console.log(articles)
-        this.article = articles.find((article) => article.number === this.$route.params.id)
+        this.article = articles.find(
+          article => article.number === this.$route.params.id
+        )
       })
+  },
+  computed: {
+    imageBoxer () {
+      if (this.article.name) {
+        return require(`../assets/${this.article.name
+          .split(' ')
+          .join('-')
+          .replace('.', '')}.png`)
+      } else {
+        return ''
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.article {
+  margin: 0 auto;
+}
 .article_background {
   background: url("../assets/article_img.jpg");
   background-repeat: no-repeat;
@@ -45,6 +76,12 @@ export default {
   width: 100%;
   height: 30vh;
   position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.text__desrciption {
+  padding: 10px 0px;
 }
 strong {
   font-weight: 900;
@@ -56,6 +93,7 @@ strong {
   left: 10%;
 }
 .title_boxeur {
+  padding-top: 20px;
   font-family: Avenir;
   font-style: normal;
   font-weight: 800;
@@ -71,15 +109,7 @@ strong {
 
   margin-bottom: 1rem;
 }
-.container__article-text {
-  margin-left: 1rem;
-  padding-bottom: 5rem;
-  @media screen and (min-width: 900px) {
-    margin-top: 2rem;
-    margin-left: 5rem;
-    width: 65vw;
-  }
-}
+
 .margin_bottom {
   padding-bottom: 1rem;
 }
