@@ -9,6 +9,20 @@ if (process.env.NODE_ENV === 'production') {
         'App is being served from cache by a service worker.\n' +
         'For more details, visit https://goo.gl/AFskqB'
       )
+      if (Notification.permission !== 'denied') {
+        Notification.requestPermission(function (permission) {
+          // Quelque soit la réponse de l'utilisateur, nous nous assurons de stocker cette information
+          if (!('permission' in Notification)) {
+            Notification.permission = permission
+          }
+
+          console.log(localStorage.getItem('firstNotification'))
+          if (permission === 'granted' && localStorage.getItem('firstNotification') !== 'yes') {
+            new Notification('Les notification sont maintenant activé 😃')
+            localStorage.setItem('firstNotification', 'yes')
+          }
+        })
+      }
     },
     registered () {
       console.log('Service worker has been registered.')
