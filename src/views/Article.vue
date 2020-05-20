@@ -1,54 +1,70 @@
 <template>
   <div class="article">
-      <h1 class="title_boxeur">{{article.name}}</h1>
-      <h2 class="subtitle_carrer">HIS CARRER</h2>
+    <h1 class="title_boxeur">{{article.name}}</h1>
+    <h2 class="subtitle_carrer">HIS CARRER</h2>
     <div class="article_background">
       <img class="boxeur" :src="imageBoxer" />
     </div>
     <div class="container__article-text">
       <div class="margin_bottom">
-        <p class="margin_bottomtwo"><strong>Record :</strong> {{article.records}}</p>
-        <p><strong>Years Active:</strong>{{article.YearsActive}}</p>
-      </div>
-      <p><strong>Championships : </strong>{{article.championships}}</p>
-        <p class="text__desrciption" v-for="(description, index) in article.description" :key="index" >
-          {{description}}
+        <p class="margin_bottomtwo">
+          <strong>Record :</strong>
+          {{article.records}}
         </p>
+        <p>
+          <strong>Years Active:</strong>
+          {{article.YearsActive}}
+        </p>
+      </div>
+      <p>
+        <strong>Championships :</strong>
+        {{article.championships}}
+      </p>
+      <p
+        class="text__desrciption"
+        v-for="(description, index) in article.description"
+        :key="index"
+      >{{description}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       article: {}
-    }
+    };
   },
-  mounted () {
-    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles')
+  mounted() {
+    fetch(
+      "https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles"
+    )
       .then(response => response.json())
-      .then((articles) => {
-        console.log(articles)
-        this.article = articles.find((article) => article.number === this.$route.params.id)
-      })
+      .then(articles => {
+        console.log(articles);
+        this.article = articles.find(
+          article => article.number === this.$route.params.id
+        );
+      });
   },
   computed: {
-    imageBoxer () {
+    imageBoxer() {
       if (this.article.name) {
-        return require(`../assets/${this.article.name.split(' ').join('-').replace('.', '')}.png`)
+        return require(`../assets/${this.article.name
+          .split(" ")
+          .join("-")
+          .replace(".", "")}.png`);
       } else {
-        return ''
+        return "";
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .article {
-  width: 800px;
   margin: 0 auto;
 }
 .article_background {
@@ -59,7 +75,7 @@ export default {
   width: 100%;
   height: 30vh;
   position: relative;
-  padding-bottom: 20px ;
+  padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
@@ -92,9 +108,7 @@ strong {
 
   margin-bottom: 1rem;
 }
-.container__article-text {
 
-}
 .margin_bottom {
   padding-bottom: 1rem;
 }
