@@ -8,12 +8,11 @@
         </div>
       </div>
       <div class="container_text">
-        <p class="card_text">{{record}}</p>
-        <p class="card_text">Years Active: {{years}}</p>
+        <p class="card_text"><strong>Record :</strong> {{record}}</p>
+        <p class="card_text"><strong>Years Active </strong>: {{years}}</p>
       </div>
       <div class="container_text">
-        <p class="card_text">Championships:</p>
-        <p class="card_text">{{championships}}</p>
+        <p class="card_text"> <strong>Championships :</strong> {{championships}}</p>
       </div>
     </div>
     <div class="container_button">
@@ -52,6 +51,9 @@ export default {
   border-radius: 18px;
   padding: 1rem 1.5rem;
   margin: 20px 0;
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
   @media screen and (min-width: 900px) {
     max-width: 300px;
     margin-left: 3rem;
@@ -63,12 +65,14 @@ export default {
 
 .card_button {
   background: #235789;
-  border-radius: 14px;
+  border-radius: 33px;
   border: none;
   color: white;
   font-size: 16px;
   padding: 10px 20px;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px;
 }
 
 .title_rank {
@@ -79,8 +83,8 @@ export default {
 }
 .rank {
   background: #235789;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 12px 14px;
+  border-radius: 100%;
   color: white;
   width: 15px;
   display: flex;

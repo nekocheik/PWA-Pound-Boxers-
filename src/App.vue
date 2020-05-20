@@ -5,7 +5,7 @@
       <span class="back"> <router-link :to="{ name : lastPage }">back</router-link></span>
       <div class="desktop_nav">
         <router-link to="/articles" class="new__picto">NEWS</router-link>
-        <router-link to="/"><img src="@/assets/pictos/home.svg"/></router-link>
+        <router-link to="/" ><img src="@/assets/pictos/home.svg" /></router-link>
         <img class="night__picto" @click="night = !night" src="@/assets/pictos/night_picto.svg"/>
       </div>
     </div>
@@ -67,6 +67,7 @@ export default {
   width: 100%;
   padding: 20px 0px;
   color: white;
+  z-index: 100;
   a {
     color: white;
   }
@@ -133,6 +134,7 @@ export default {
 .container {
   text-align: left;
   padding-top: 100px;
+  padding-bottom: 100px;
   margin: 0 20px;
 }
 
