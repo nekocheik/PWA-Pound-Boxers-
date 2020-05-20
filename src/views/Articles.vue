@@ -1,5 +1,5 @@
 <template>
-  <div class="article">
+  <div class="article" :class="{ night : night}">
     <div>
       <h1 class="article_subtitle">
         Discover our articles on the world of boxing and on the greatest
@@ -7,11 +7,11 @@
       </h1>
     </div>
     <div class="container_input">
-      <input class="article_input" placeholder="Recherche ton boxeur :" />
+      <input v-model="autocompletion" class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
     <div class="cards">
-      <Card v-for="(item, index) in array" :key="index" :cardTitle="'Salvador Sanchez'" :record="'Record: 44-1-1, 32 KO'" :years="'Years Active: 1975-1982'"  :tournament="'tournament'"/>
+      <Card v-for="(boxer, index) in boxerList" :key="index" :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
     </div>
   </div>
 </template>
@@ -19,37 +19,30 @@
 <script>
 
 import Card from '@/components/card'
+import dataJson from '@/assets/dataBoxer.json'
 
 export default {
   name: 'articles',
+  data () {
+    return {
+      staticData: dataJson,
+      autocompletion: ''
+    }
+  },
   components: {
     Card
   },
+  props: {
+    night: Boolean
+  },
+  mounted () {
+  },
   computed: {
-    array: function () {
-      const l = []
-      for (let i = 0; i < 100; i++) {
-        l.push(9)
-      }
-      return l
+    boxerList () {
+      return this.staticData.filter((e) => e.name.toLowerCase().includes(this.autocompletion.toLowerCase()))
     }
   }
 }
-
-const boxers = [
-
-]
-document.querySelectorAll('.organism.contentStream.slide').forEach((e, i) => {
-  if (i === 0) {
-    return
-  }
-  const boxer = {
-    title: e.querySelector('h1').innerHTML || '',
-    text: e.querySelector('ol').innerHTML
-  }
-
-  boxers.push(boxer)
-})
 
 </script>
 
@@ -65,23 +58,31 @@ document.querySelectorAll('.organism.contentStream.slide').forEach((e, i) => {
   text-align: center;
   margin-bottom: 2rem;
 }
-.article_input {
-  border: 3px solid #c1292e;
-  padding: 10px 40px;
-  border-radius: 29px;
-  width: 70%;
-  max-width: 300px;
-  color: #c1292e;
-  font-size: 16px;
-}
 
-.article_input::placeholder {
-  color: #c1292e;
-  font-family: Avenir;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
+.article {
+  transition-duration: 0.5s ;
+    .article_input {
+    border: 3px solid #c1292e;
+    padding: 10px 40px;
+    border-radius: 29px;
+    width: 70%;
+    max-width: 300px;
+    color: #c1292e;
+    font-size: 16px;
+    &::placeholder {
+      color: #c1292e;
+      font-family: Avenir;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  &.night {
+    .article_input {
+      background: #1C1C1C;
+    }
+  }
 }
 
 .container_input {

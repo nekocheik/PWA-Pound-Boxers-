@@ -1,18 +1,21 @@
 <template>
-  <div id="app">
-    <div class="nav__top">
+  <div id="app"  :class="{ night : night  }">
+    <div class="nav__top" >
       <p>{{currentUrlName}}</p>
-      <span class="back"> <router-link to="/">back</router-link></span>
+      <span class="back"> <router-link :to="{ name : lastPage }">back</router-link></span>
+      <div class="desktop_nav">
+        <router-link to="/articles" class="new__picto">NEWS</router-link>
+        <router-link to="/"><img src="@/assets/pictos/home.svg"/></router-link>
+        <img class="night__picto" @click="night = !night" src="@/assets/pictos/night_picto.svg"/>
+      </div>
     </div>
     <div class="container">
-      <router-view />
+      <router-view :night="night" />
     </div>
     <div class="nav__bottom">
+      <router-link to="/articles" class="new__picto">NEWS</router-link>
       <router-link to="/"><img src="@/assets/pictos/home.svg"/></router-link>
-      <span class="back">
-        <router-link to="/articles">NEWS</router-link>
-        <router-link to="/article/1">article</router-link>
-      </span>
+      <img class="night__picto" @click="night = !night" src="@/assets/pictos/night_picto.svg"/>
     </div>
   </div>
 </template>
@@ -23,26 +26,25 @@ export default {
   name: 'Main',
   data () {
     return {
-      lastPage: 'home'
+      lastPage: 'home',
+      night: false
     }
   },
   computed: {
     currentUrlPath () {
-      return this.$router.path
+      return this.$route.path
     },
     currentUrlName () {
-      return this.$router.currentRoute.name
+      return this.$route.name
     }
   },
   watch: {
-    currentUrlPath (newPage, oldPage) {
-      console.log('The list of colours has changed!')
-      console.log(newPage, oldPage)
+    currentUrlName (newPage, oldPage) {
       this.lastPage = oldPage
     }
   },
   mounted () {
-    console.log(this.$router)
+    console.log()
   }
 }
 
@@ -50,6 +52,15 @@ export default {
 
 <style lang="scss">
 @import "./main.scss";
+
+#app {
+  min-height: 100vh;
+  transition-duration: 0.5s ;
+  &.night {
+    background: $secondary-night;
+    color: white ;
+  }
+}
 .nav__top {
   position: fixed;
   top: 0px;
@@ -61,12 +72,39 @@ export default {
   }
   background-color: $primary-color;
 }
+
+  .desktop_nav {
+    display: none;
+    @media screen and (min-width: 900px) {
+      display: flex;
+      width: 300px;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      justify-content: space-around;
+      align-items: center;
+      img, a {
+        text-decoration: none;
+        font-weight: 900;
+        display: table;
+      }
+    }
+  }
+
 .nav__bottom {
   position: fixed;
   bottom: 0px;
   width: 100%;
   padding: 20px 0px;
   color: white;
+  display: flex;
+  justify-content: space-around;
+  .new__picto {
+    display: table;
+    margin: auto 0px;
+    text-decoration: none;
+  }
   a {
     color: white;
   }
@@ -74,6 +112,9 @@ export default {
   @media screen and (min-width: 900px) {
     display: none;
   }
+}
+.night__picto {
+  cursor: pointer;
 }
 
 .back {
@@ -92,6 +133,7 @@ export default {
 .container {
   text-align: left;
   padding-top: 100px;
+  margin: 0 20px;
 }
 
 h2 {

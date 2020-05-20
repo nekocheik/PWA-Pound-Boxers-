@@ -1,9 +1,9 @@
 <template>
-   <div class="card">
+   <div class="card" :class="{night : night}">
       <div class="title_rank">
         <p class="card_title">{{cardTitle}}</p>
         <div class="rank">
-          <p>10</p>
+          <p>{{number}}</p>
         </div>
       </div>
       <div class="container_text">
@@ -12,10 +12,10 @@
       </div>
       <div class="container_text">
         <p class="card_text">Championships:</p>
-        <p class="card_text">{{tournament}}</p>
+        <p class="card_text">{{championships}}</p>
       </div>
       <div class="container_button">
-        <button class="card_button">Lire la fiche</button>
+        <button @click="goToArticle(articleNumber)" class="card_button">Lire la fiche</button>
       </div>
     </div>
 
@@ -29,12 +29,19 @@ export default {
 
     }
   },
+  methods: {
+    goToArticle (articleNumber) {
+      this.$router.push({ name: 'article', params: { id: articleNumber } })
+    }
+  },
   name: 'card',
   props: {
     cardTitle: String,
     record: String,
     years: String,
-    tournament: String
+    championships: String,
+    number: String,
+    night: Boolean
   },
   components: {
 
@@ -46,10 +53,10 @@ export default {
 <style lang="scss" scoped>
 
 .card {
-  background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
   padding: 1rem 1.5rem;
+  margin: 20px 0;
   @media screen and (min-width: 900px) {
     max-width: 300px;
     margin-left: 3rem;
@@ -58,9 +65,12 @@ export default {
 
 .card_button {
   background: #235789;
-  border-radius: 10px;
+  border-radius: 14px;
+  border: none;
   color: white;
+  font-size: 16px;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .title_rank {
@@ -79,7 +89,6 @@ export default {
   font-weight: 900;
   font-size: 22px;
   line-height: 30px;
-  color: #000000;
 }
 .card_text {
   font-family: Avenir;
@@ -87,7 +96,6 @@ export default {
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
-  color: #000000;
 }
 .container_text {
   margin-bottom: 0.8rem;

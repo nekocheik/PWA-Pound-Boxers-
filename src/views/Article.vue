@@ -7,10 +7,10 @@
       <h1 class="title_boxeur">Mike Tyson</h1>
       <h2 class="subtitle_carrer">HIS CARRER</h2>
       <div class="margin_bottom">
-        <p class="margin_bottomtwo">Record: 44-1-1, 32 KO</p>
-        <p>Years Active: 1975-1982</p>
+        <p class="margin_bottomtwo"><strong>Record :</strong> 44-1-1, 32 KO</p>
+        <p><strong>Years Active:</strong> 1975-1982</p>
       </div>
-      <p>Championships: WBC Featherweight</p>
+      <p><strong>Championships :</strong> WBC Featherweight</p>
       <p class="margin_bottom">
         If not for his tragic death in an automobile accident in 1982, many
         boxing observers feel that Salvador Sanchez may well have become the
@@ -29,9 +29,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  data: function () {
+    return {
+      article: {}
+    }
+  }
+
+}
+</script>
+
 <style lang="scss" scoped>
 .article_background {
-  background: url("../assets/article_img.png");
+  background: url("../assets/article_img.jpg");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% auto;
@@ -39,10 +50,14 @@
   height: 30vh;
   position: relative;
 }
+strong {
+  font-weight: 900;
+}
 .boxeur {
   position: absolute;
   bottom: 0;
-  left: 25%;
+  height: 110%;
+  left: 10%;
 }
 .title_boxeur {
   font-family: Avenir;
@@ -50,7 +65,6 @@
   font-weight: 800;
   font-size: 24px;
   line-height: 33px;
-  color: #000000;
 }
 .subtitle_carrer {
   font-family: Avenir;
@@ -58,7 +72,7 @@
   font-weight: 900;
   font-size: 36px;
   line-height: 49px;
-  color: #000000;
+
   margin-bottom: 1rem;
 }
 .container__article-text {
