@@ -10,9 +10,13 @@
       <input v-model="autocompletion" class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
-    <div class="cards">
-      <Card v-for="(boxer, index) in boxerList" :key="index" :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
+
+    <div >
+      <transition-group class="cards" name="fade">
+         <Card v-for="(boxer, index) in boxerList" :key="index" :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
+      </transition-group>
     </div>
+
   </div>
 </template>
 
@@ -51,6 +55,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateY(400px);
+  opacity: 0;
+}
 
 .cards {
   display: flex;

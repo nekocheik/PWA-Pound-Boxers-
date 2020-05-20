@@ -10,7 +10,9 @@
       </div>
     </div>
     <div class="container">
-      <router-view :night="night" />
+      <transition class="cards" name="fade">
+        <router-view :night="night" />
+      </transition>
     </div>
     <div class="nav__bottom">
       <router-link to="/articles" class="new__picto">NEWS</router-link>
@@ -52,6 +54,22 @@ export default {
 
 <style lang="scss">
 @import "./main.scss";
+
+.fade-enter-active, .fade-leave-active, .fade-leave {
+  transition: opacity 1s, transform 1s;
+}
+
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transition: opacity 1s, transform 1s;
+  transform: translateY(400px);
+  opacity: 0;
+}
+
+.fade-enter {
+   transition: opacity 1s, transform 1s;
+   transform: translateY(400px);
+   opacity: 0;
+}
 
 #app {
   min-height: 100vh;
