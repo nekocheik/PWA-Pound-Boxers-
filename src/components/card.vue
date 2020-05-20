@@ -23,16 +23,16 @@
 
 <script>
 export default {
-  data: function() {
-    return {};
+  data: function () {
+    return {}
   },
   methods: {
-    goToArticle(articleNumber) {
-      console.log(articleNumber);
-      this.$router.push({ name: "article", params: { id: articleNumber } });
+    goToArticle (articleNumber) {
+      console.log(articleNumber)
+      this.$router.push({ name: 'article', params: { id: articleNumber } })
     }
   },
-  name: "card",
+  name: 'card',
   props: {
     cardTitle: String,
     record: String,
@@ -42,7 +42,7 @@ export default {
     night: Boolean
   },
   components: {}
-};
+}
 </script>
 
 <style lang="scss" scoped>
