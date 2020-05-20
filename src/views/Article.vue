@@ -4,26 +4,15 @@
       <img class="boxeur" src="../assets/mike_tyson.png" />
     </div>
     <div class="container__article-text">
-      <h1 class="title_boxeur">Mike Tyson</h1>
+      <h1 class="title_boxeur">{{article.name}}</h1>
       <h2 class="subtitle_carrer">HIS CARRER</h2>
       <div class="margin_bottom">
-        <p class="margin_bottomtwo"><strong>Record :</strong> 44-1-1, 32 KO</p>
-        <p><strong>Years Active:</strong> 1975-1982</p>
+        <p class="margin_bottomtwo"><strong>Record :</strong> {{article.records}}</p>
+        <p><strong>Years Active:</strong>{{article.YearsActive}}</p>
       </div>
-      <p><strong>Championships :</strong> WBC Featherweight</p>
+      <p><strong>Championships : </strong>{{article.championships}}</p>
       <p class="margin_bottom">
-        If not for his tragic death in an automobile accident in 1982, many
-        boxing observers feel that Salvador Sanchez may well have become the
-        greatest featherweight fighter of all time.
-      </p>
-      <p class="margin_bottom">
-        In his short but impressive career, Sanchez compiled wins over
-        high-level opposition, including Danny "Little Red" Lopez twice, Ruben
-        Castillo, Juan Laporte, Wilfredo Gomez and Azumah Nelson.
-      </p>
-      <p class="margin_bottom">
-        It's unfortunate that we never got a chance to see how great he could
-        have truly been.
+        {{article.description[0]}}
       </p>
     </div>
   </div>
@@ -35,8 +24,15 @@ export default {
     return {
       article: {}
     }
+  },
+  mounted () {
+    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles')
+      .then(response => response.json())
+      .then((articles) => {
+        console.log(articles)
+        this.article = articles.find((article) => article.number === this.$route.params.id)
+      })
   }
-
 }
 </script>
 

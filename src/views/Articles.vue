@@ -24,7 +24,7 @@ export default {
   name: 'articles',
   data () {
     return {
-      article: [],
+      articles: [],
       autocompletion: ''
     }
   },
@@ -35,15 +35,15 @@ export default {
     night: Boolean
   },
   mounted () {
-    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/1')
+    fetch('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/articles')
       .then(response => response.json())
-      .then((c) => {
-        console.log(c)
+      .then((data) => {
+        this.articles = data
       })
   },
   computed: {
     boxerList () {
-      return this.article.filter((e) => e.name.toLowerCase().includes(this.autocompletion.toLowerCase()))
+      return this.articles.filter((e) => e.name.toLowerCase().includes(this.autocompletion.toLowerCase()))
     }
   }
 }

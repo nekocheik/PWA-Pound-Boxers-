@@ -15,7 +15,7 @@
         <p class="card_text">{{championships}}</p>
       </div>
       <div class="container_button">
-        <button @click="goToArticle(articleNumber)" class="card_button">Lire la fiche</button>
+        <button @click="goToArticle(number)" class="card_button">Lire la fiche</button>
       </div>
     </div>
 
@@ -26,11 +26,11 @@
 export default {
   data: function () {
     return {
-
     }
   },
   methods: {
     goToArticle (articleNumber) {
+      console.log(articleNumber)
       this.$router.push({ name: 'article', params: { id: articleNumber } })
     }
   },

@@ -8,7 +8,7 @@ workbox.setConfig({
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 workbox.routing.registerRoute(
-  new RegExp('https://jsonplaceholder.typicode.com/(.*)'),
+  new RegExp('https://my-json-server.typicode.com/nekocheik/PWA-Pound-Boxers-/(.*)'),
   new workbox.strategies.CacheFirst({
     cacheName: 'jsonplaceholder',
     method: 'GET',
