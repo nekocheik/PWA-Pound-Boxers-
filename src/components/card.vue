@@ -61,6 +61,8 @@ strong {
   padding: 1rem 1.5rem;
   margin: 20px 0;
   width: 100%;
+  position: relative;
+  padding-bottom: 50px;
   @media screen and (min-width: 900px) {
     max-width: 300px;
     margin-left: 3rem;
@@ -75,6 +77,8 @@ strong {
   font-size: 16px;
   padding: 10px 20px;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px;
 }
 
 .title_rank {

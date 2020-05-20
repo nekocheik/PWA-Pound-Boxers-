@@ -5,7 +5,7 @@
       <span class="back"> <router-link :to="{ name : lastPage }">back</router-link></span>
       <div class="desktop_nav">
         <router-link to="/articles" class="new__picto">NEWS</router-link>
-        <router-link to="/"><img src="@/assets/pictos/home.svg"/></router-link>
+        <router-link to="/" ><img src="@/assets/pictos/home.svg" /></router-link>
         <img class="night__picto" @click="night = !night" src="@/assets/pictos/night_picto.svg"/>
       </div>
     </div>

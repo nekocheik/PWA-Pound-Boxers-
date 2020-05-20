@@ -11,9 +11,9 @@
         <p><strong>Years Active:</strong>{{article.YearsActive}}</p>
       </div>
       <p><strong>Championships : </strong>{{article.championships}}</p>
-      <p class="margin_bottom">
-        {{article.description[0]}}
-      </p>
+        <p class="text__desrciption" v-for="(description, index) in article.description" :key="index" >
+          {{description}}
+        </p>
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
   computed: {
     imageBoxer () {
       if (this.article.name) {
-        return require(`../assets/${this.article.name.split(' ').join('-')}.png`)
+        return require(`../assets/${this.article.name.split(' ').join('-').replace('.', '')}.png`)
       } else {
         return ''
       }
@@ -54,6 +54,10 @@ export default {
   width: 100%;
   height: 30vh;
   position: relative;
+}
+
+.text__desrciption {
+  padding: 10px 0px;
 }
 strong {
   font-weight: 900;
