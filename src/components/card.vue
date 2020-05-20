@@ -1,5 +1,6 @@
 <template>
-   <div class="card" :class="{night : night}">
+  <div class="card" :class="{night : night}">
+    <div class="container_one">
       <div class="title_rank">
         <p class="card_title">{{cardTitle}}</p>
         <div class="rank">
@@ -14,27 +15,25 @@
         <p class="card_text">Championships:</p>
         <p class="card_text">{{championships}}</p>
       </div>
-      <div class="container_button">
-        <button @click="goToArticle(number)" class="card_button">Lire la fiche</button>
-      </div>
     </div>
-
+    <div class="container_button">
+      <button @click="goToArticle(number)" class="card_button">Lire la fiche</button>
+    </div>
+  </div>
 </template>
 
 <script>
-
 export default {
-  data: function () {
-    return {
-    }
+  data: function() {
+    return {};
   },
   methods: {
-    goToArticle (articleNumber) {
-      console.log(articleNumber)
-      this.$router.push({ name: 'article', params: { id: articleNumber } })
+    goToArticle(articleNumber) {
+      console.log(articleNumber);
+      this.$router.push({ name: "article", params: { id: articleNumber } });
     }
   },
-  name: 'card',
+  name: "card",
   props: {
     cardTitle: String,
     record: String,
@@ -43,15 +42,11 @@ export default {
     number: String,
     night: Boolean
   },
-  components: {
-
-  }
-}
-
+  components: {}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .card {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
@@ -60,6 +55,9 @@ export default {
   @media screen and (min-width: 900px) {
     max-width: 300px;
     margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
@@ -84,6 +82,10 @@ export default {
   padding: 10px;
   border-radius: 50%;
   color: white;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card_title {
   font-weight: 900;
