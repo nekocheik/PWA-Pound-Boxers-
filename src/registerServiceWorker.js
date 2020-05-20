@@ -16,11 +16,11 @@ if (process.env.NODE_ENV === 'production') {
             Notification.permission = permission
           }
 
-          console.log(localStorage.getItem('firstNotification'))
-          if (permission === 'granted' && localStorage.getItem('firstNotification') !== 'yes') {
+          // console.log(localStorage.getItem('firstNotification'))
+          if (permission === 'granted') {
             const notification = new Notification('Les notification sont maintenant activé 😃')
             console.log(notification)
-            localStorage.setItem('firstNotification', 'yes')
+            // localStorage.setItem('firstNotification', 'yes')
           }
         })
       }
