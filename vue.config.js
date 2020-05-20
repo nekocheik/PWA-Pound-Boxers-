@@ -1,10 +1,10 @@
 module.exports = {
   pwa: {
-    name: 'My App',
-    themeColor: '#4DBA87',
+    name: 'Spartacus',
+    themeColor: '#235789',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
+    appleMobileWebAppStatusBarStyle: '#C1292E',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: './src/sw.js'

@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <div class="article_background">
-      <img class="boxeur" src="../assets/mike_tyson.png" />
+      <img class="boxeur" src="../assets/mike_tyson.png" alt="boxeur"/>
     </div>
     <div class="container__article-text">
       <h1 class="title_boxeur">{{article.name}}</h1>

@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <h1>Discover the greatest boxing athletes through our blog</h1>
-    <h2 class="sub-text">Le monde de la boxe</h2>
+    <h2 class="sub-text">The World of Boxing</h2>
     <p class="block__text">
       Any ranking of the best fighters in boxing history is subjective. It is prone to overrating, underrating and disagreements of all sorts.
     </p>
-    <div class="container__image"><img class="main__image" src="../assets/adonis-creed-creed-II.jpg" alt=""></div>
+    <div class="container__image"><img class="main__image" src="../assets/adonis-creed-creed-II.jpg" alt="creed-photo"></div>
     <p class="block__text">
       This will be no different.
     </p>
