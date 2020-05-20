@@ -18,7 +18,8 @@ if (process.env.NODE_ENV === 'production') {
 
           console.log(localStorage.getItem('firstNotification'))
           if (permission === 'granted' && localStorage.getItem('firstNotification') !== 'yes') {
-            new Notification('Les notification sont maintenant activé 😃')
+            const notification = new Notification('Les notification sont maintenant activé 😃')
+            console.log(notification)
             localStorage.setItem('firstNotification', 'yes')
           }
         })

@@ -27,6 +27,13 @@
         :key="index"
       >{{description}}</p>
     </div>
+    <div>
+
+      <div class="container_button">
+        <button class="card_button" @click="copyUrl">{{textShareUrl}}</button>
+      </div>
+
+    </div>
   </div>
 </template>
 
@@ -34,6 +41,7 @@
 export default {
   data: function () {
     return {
+      textShareUrl: "Copier Le lien de l'article",
       article: {}
     }
   },
@@ -48,6 +56,18 @@ export default {
           article => article.number === this.$route.params.id
         )
       })
+    this.hasShareUrl = navigator.clipboard
+  },
+  methods: {
+    copyUrl () {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          this.textShareUrl = 'Copié !'
+          setTimeout(() => (this.textShareUrl = "Copier Le lien de l'article"), 2000)
+        })
+        .catch((err) => console.warn(err))
+    }
   },
   computed: {
     imageBoxer () {
@@ -115,5 +135,17 @@ strong {
 }
 .margin_bottomtwo {
   padding-bottom: 0.5rem;
+}
+
+.card_button {
+  background: #235789;
+  border-radius: 33px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  bottom: 10px;
 }
 </style>
