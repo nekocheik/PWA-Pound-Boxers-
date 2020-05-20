@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <div class="article_background">
-      <img class="boxeur" src="../assets/mike_tyson.png" />
+      <img class="boxeur" :src="imageBoxer" />
     </div>
     <div class="container__article-text">
       <h1 class="title_boxeur">{{article.name}}</h1>
@@ -32,6 +32,15 @@ export default {
         console.log(articles)
         this.article = articles.find((article) => article.number === this.$route.params.id)
       })
+  },
+  computed: {
+    imageBoxer () {
+      if (this.article.name) {
+        return require(`../assets/${this.article.name.split(' ').join('-')}.png`)
+      } else {
+        return ''
+      }
+    }
   }
 }
 </script>

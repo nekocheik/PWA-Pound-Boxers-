@@ -7,12 +7,11 @@
         </div>
       </div>
       <div class="container_text">
-        <p class="card_text">{{record}}</p>
-        <p class="card_text">Years Active: {{years}}</p>
+        <p class="card_text"><strong>Record :</strong> {{record}}</p>
+        <p class="card_text"><strong>Years Active </strong>: {{years}}</p>
       </div>
       <div class="container_text">
-        <p class="card_text">Championships:</p>
-        <p class="card_text">{{championships}}</p>
+        <p class="card_text"> <strong>Championships :</strong> {{championships}}</p>
       </div>
       <div class="container_button">
         <button @click="goToArticle(number)" class="card_button">Lire la fiche</button>
@@ -52,11 +51,16 @@ export default {
 
 <style lang="scss" scoped>
 
+strong {
+  font-weight: 900;
+}
+
 .card {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
   padding: 1rem 1.5rem;
   margin: 20px 0;
+  width: 100%;
   @media screen and (min-width: 900px) {
     max-width: 300px;
     margin-left: 3rem;
@@ -81,8 +85,8 @@ export default {
 }
 .rank {
   background: #235789;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 12px 14px;
+  border-radius: 100%;
   color: white;
 }
 .card_title {

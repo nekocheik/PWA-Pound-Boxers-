@@ -67,6 +67,7 @@ export default {
   width: 100%;
   padding: 20px 0px;
   color: white;
+  z-index: 100;
   a {
     color: white;
   }
@@ -133,6 +134,7 @@ export default {
 .container {
   text-align: left;
   padding-top: 100px;
+  padding-bottom: 100px;
   margin: 0 20px;
 }
 
