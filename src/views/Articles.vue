@@ -10,11 +10,8 @@
       <input v-model="autocompletion" class="article_input" placeholder="Recherche ton boxeur :" />
     </div>
     <h2 class="list_title">Listes des boxeur :</h2>
-
-    <div >
-      <transition-group class="cards" name="fade">
-         <Card v-for="(boxer, index) in boxerList" :key="index" :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
-      </transition-group>
+    <div class="cards">
+      <Card v-for="(boxer, index) in boxerList" :key="index" :data-aos-delay="(index +1) * 150"  :night="night" :cardTitle="boxer.name" :number="boxer.number" :record="boxer.records" :years="boxer.YearsActive"  :championships="boxer.championships"/>
     </div>
 
   </div>
