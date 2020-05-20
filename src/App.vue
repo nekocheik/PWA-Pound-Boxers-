@@ -61,19 +61,19 @@ export default {
 
 .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transition: opacity 1s, transform 1s;
-  transform: translateY(400px);
+  transform: translateY(600px);
   opacity: 0;
 }
 
 .fade-enter {
    transition: opacity 1s, transform 1s;
-   transform: translateY(400px);
+   transform: translateY(600px);
    opacity: 0;
 }
 
 #app {
   min-height: 100vh;
-  transition-duration: 0.5s ;
+  transition-duration: background 0.5s, color 0.5s ;
   &.night {
     background: $secondary-night;
     color: white ;
