@@ -71,7 +71,7 @@ strong {
 
 .card_button {
   background: #235789;
-  border-radius: 14px;
+  border-radius: 33px;
   border: none;
   color: white;
   font-size: 16px;

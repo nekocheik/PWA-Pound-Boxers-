@@ -1,11 +1,11 @@
 <template>
   <div class="article">
+      <h1 class="title_boxeur">{{article.name}}</h1>
+      <h2 class="subtitle_carrer">HIS CARRER</h2>
     <div class="article_background">
       <img class="boxeur" :src="imageBoxer" />
     </div>
     <div class="container__article-text">
-      <h1 class="title_boxeur">{{article.name}}</h1>
-      <h2 class="subtitle_carrer">HIS CARRER</h2>
       <div class="margin_bottom">
         <p class="margin_bottomtwo"><strong>Record :</strong> {{article.records}}</p>
         <p><strong>Years Active:</strong>{{article.YearsActive}}</p>
@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.article {
+  width: 800px;
+  margin: 0 auto;
+}
 .article_background {
   background: url("../assets/article_img.jpg");
   background-repeat: no-repeat;
@@ -54,6 +59,8 @@ export default {
   width: 100%;
   height: 30vh;
   position: relative;
+  padding-bottom: 20px ;
+  margin-bottom: 20px;
 }
 
 .text__desrciption {
@@ -69,6 +76,7 @@ strong {
   left: 10%;
 }
 .title_boxeur {
+  padding-top: 20px;
   font-family: Avenir;
   font-style: normal;
   font-weight: 800;
@@ -85,13 +93,7 @@ strong {
   margin-bottom: 1rem;
 }
 .container__article-text {
-  margin-left: 1rem;
-  padding-bottom: 5rem;
-  @media screen and (min-width: 900px) {
-    margin-top: 2rem;
-    margin-left: 5rem;
-    width: 65vw;
-  }
+
 }
 .margin_bottom {
   padding-bottom: 1rem;
