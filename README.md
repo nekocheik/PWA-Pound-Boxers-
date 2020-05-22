@@ -8,13 +8,11 @@
 
 Features :
 
-• 3 pages minimums
+• Homepage
 
-    • Homepage
+• Listing des articles
 
-    • Listing des articles
-
-    • Page d'article
+• Page d'article
 
 • Responsive design
 
